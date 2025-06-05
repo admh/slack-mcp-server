@@ -1,0 +1,28 @@
+runtime: "container"
+build:
+  dockerfile: "Dockerfile"
+  dockerBuildPath: "."
+startCommand:
+  type: "stdio"
+  configSchema:
+    type: "object"
+    required: ["SLACK_BOT_TOKEN", "SLACK_USER_TOKEN"]
+    properties:
+      SLACK_BOT_TOKEN:
+        type: "string"
+        title: "Slack Bot Token"
+        description: "Slack Bot User OAuth Token"
+      SLACK_USER_TOKEN:
+        type: "string"
+        title: "Slack User Token"
+        description: "Slack User OAuth Token"
+  commandFunction: |-
+    (config) => ({
+      command: "node",
+      args: ["dist/index.js"],
+      env: {
+        SLACK_BOT_TOKEN: config.SLACK_BOT_TOKEN,
+        SLACK_USER_TOKEN: config.SLACK_USER_TOKEN,
+        NODE_ENV: "production"
+      }
+    })
