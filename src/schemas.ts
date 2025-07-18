@@ -325,11 +325,11 @@ export const ListChannelsResponseSchema = BaseResponseSchema.extend({
   channels: z.array(ChannelSchema).optional(),
 });
 
-export const SearchMessagesResponseSchema = BaseResponseSchema.extend({
-  messages: z
-    .object({
-      matches: z.array(SearchMessageSchema).optional(),
-      pagination: SearchPaginationSchema.optional(),
-    })
-    .optional(),
-});
+// export const SearchMessagesResponseSchema = BaseResponseSchema.extend({
+//   messages: z
+//     .object({
+//       matches: z.array(SearchMessageSchema).optional(),
+//       pagination: SearchPaginationSchema.optional(),
+//     })
+//     .optional(),
+// });

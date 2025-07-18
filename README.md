@@ -30,14 +30,13 @@ NOTE: Its now hosted in GitHub Registry so you need your PAT.
 
 You need to set the following environment variables:
 
-- `SLACK_BOT_TOKEN`: Slack Bot User OAuth Token
-- `SLACK_USER_TOKEN`: Slack User OAuth Token (required for some features like message search)
+- `SLACK_ACCESS_TOKEN`: Slack Bot User OAuth Token
 
 You can also create a `.env` file to set these environment variables:
 
 ```
-SLACK_BOT_TOKEN=xoxb-your-bot-token
-SLACK_USER_TOKEN=xoxp-your-user-token
+SLACK_ACCESS_TOKEN=xoxb-your-bot-token
+SLACK_ACCESS_TOKEN=xoxp-your-user-token
 ```
 
 ### Usage
@@ -65,9 +64,7 @@ node node_modules/.bin/slack-mcp-server
       "@ubie-oss/slack-mcp-server"
     ],
     "env": {
-      "NPM_CONFIG_//npm.pkg.github.com/:_authToken": "<your-github-pat>",
-      "SLACK_BOT_TOKEN": "<your-bot-token>",
-      "SLACK_USER_TOKEN": "<your-user-token>"
+      "SLACK_ACCESS_TOKEN": "<your-bot-token>",
     }
   }
 }
