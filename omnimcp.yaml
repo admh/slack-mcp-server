@@ -6,23 +6,18 @@ startCommand:
   type: "stdio"
   configSchema:
     type: "object"
-    required: ["slackBotToken", "slackUserToken"]
+    required: ["slackAccessToken"]
     properties:
-      slackBotToken:
+      slackAccessToken:
         type: "string"
         title: "Slack Bot Token"
         description: "Slack Bot User OAuth Token"
-      slackUserToken:
-        type: "string"
-        title: "Slack User Token"
-        description: "Slack User OAuth Token"
   commandFunction: |-
     (config) => ({
       command: "node",
       args: ["dist/index.js"],
       env: {
-        SLACK_BOT_TOKEN: config.SLACK_BOT_TOKEN,
-        SLACK_USER_TOKEN: config.SLACK_USER_TOKEN,
+        SLACK_ACCESS_TOKEN: config.slackAccessToken,
         NODE_ENV: "production"
       }
     })
